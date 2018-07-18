@@ -20,10 +20,13 @@ public class ShoppingCartServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         String title = "I do hate strings!";
         StringBuilder tableContent = new StringBuilder();
+        String sumOfPrice = "";
 
         if (ItemStore.getShoppingCartItems().size() != 0) {
+            double sum = 0;
             tableContent.append("<tr>\n" + "<th>Item</th>\n" + "<th>Price</th>\n" + "</tr>\n");
             for (Item item : ItemStore.getShoppingCartItems()) {
+                sum += item.getPrice();
                 tableContent.append("<tr>\n" + "<td>")
                         .append(item.getName())
                         .append("</td>\n")
@@ -31,6 +34,7 @@ public class ShoppingCartServlet extends HttpServlet {
                         .append(item.getPrice())
                         .append("</td>\n" + "</tr>\n");
             }
+            sumOfPrice = "<h2>Sum of Price: " + Double.toString(sum) + "</h2>";
         } else {
             tableContent.append("<h2>Your cart is empty!</h2>\n");
         }
@@ -67,6 +71,7 @@ public class ShoppingCartServlet extends HttpServlet {
                         "<table id =\"items\">\n" +
                             tableContent +
                         "</table>\n" +
+                        sumOfPrice +
                         "<h2 id = \"link\"><a href=\"/webshop\">Back to webshop</a></h2>" +
                 "</body></html>"
         );
