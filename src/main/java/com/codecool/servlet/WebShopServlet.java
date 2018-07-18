@@ -34,6 +34,7 @@ public class WebShopServlet extends HttpServlet {
                     .append("</td>\n")
                     .append("<td>")
                     .append(item.getPrice())
+                    .append(" SEMMI")
                     .append("</td>\n" + "<td>" + "<form action=\"/webshop\" method=\"POST\">\n")
                     .append("<input name=\"itemNumber\" value=")
                     .append(item.getNumber())
@@ -60,7 +61,7 @@ public class WebShopServlet extends HttpServlet {
                             "#items {" +
                                 "font-family: \"Trebuchet MS\", Arial, Helvetica, sans-serif;" +
                                 "border-collapse: collapse;" +
-                                "width: 200px;" +
+                                "width: 400px;" +
                             "}" +
                             "#items td, #items th {" +
                                 "border: 1px solid #ddd;" +

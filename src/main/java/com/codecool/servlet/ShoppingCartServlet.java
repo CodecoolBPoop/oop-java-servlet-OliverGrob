@@ -32,9 +32,10 @@ public class ShoppingCartServlet extends HttpServlet {
                         .append("</td>\n")
                         .append("<td>")
                         .append(item.getPrice())
+                        .append(" SEMMI")
                         .append("</td>\n" + "</tr>\n");
             }
-            sumOfPrice = "<h2>Sum of Price: " + Double.toString(sum) + "</h2>";
+            sumOfPrice = "<h2>Sum of Price: " + Double.toString(sum) + " SEMMI</h2>";
         } else {
             tableContent.append("<h2>Your cart is empty!</h2>\n");
         }
@@ -49,7 +50,7 @@ public class ShoppingCartServlet extends HttpServlet {
                             "#items {" +
                                 "font-family: \"Trebuchet MS\", Arial, Helvetica, sans-serif;" +
                                 "border-collapse: collapse;" +
-                                "width: 200px;" +
+                                "width: 400px;" +
                             "}" +
                             "#items td, #items th {" +
                                 "border: 1px solid #ddd;" +
