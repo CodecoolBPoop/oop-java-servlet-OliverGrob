@@ -38,6 +38,10 @@ public class ItemStore {
         }
     }
 
+    public static void clearShopItemsFrom() {
+        items.clear();
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("[");

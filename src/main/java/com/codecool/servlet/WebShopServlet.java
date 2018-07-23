@@ -14,15 +14,10 @@ import java.io.PrintWriter;
 @WebServlet(name = "webShopServlet", urlPatterns = {"/webshop"}, loadOnStartup = 1)
 public class WebShopServlet extends HttpServlet {
 
-    private static int visitCounter = 0;
-
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        if (visitCounter == 0) {
-            this.init(8);
-        }
+        this.init(8);
 
         PrintWriter out = response.getWriter();
         String title = "I do hate strings!";
@@ -109,12 +104,13 @@ public class WebShopServlet extends HttpServlet {
     }
 
     private void init(int numberOfItems) {
+        ItemStore.clearShopItemsFrom();
+
         ItemFactory itemFactory = new ItemFactory();
 
         for (int i = 0; i < numberOfItems; i++) {
             ItemStore.addItemToShop(itemFactory.getItem(i));
         }
-        visitCounter++;
     }
 
 }
